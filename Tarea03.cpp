@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include<iostream>
 #include<cstring>
+#include<ctime>
 #include<postgresql/libpq-fe.h>
 
 using namespace std;
@@ -61,6 +62,9 @@ PQclear(res);
 }
 
 PQfinish(conexion);
+//Entrega La Fecha de Compilacion
+cout<<endl;
+cout << "Fecha de compilacion: " << __DATE__ << " " << __TIME__ << endl;
 return 0;
 }
 
