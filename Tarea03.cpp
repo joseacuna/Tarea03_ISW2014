@@ -60,10 +60,35 @@ void MostrarDatos(string queryDeSQL){
 int main(int argc, char** argv) {
     
     string queryDeSQL;
+    string opcion1="-r";
+    string opcion2="-g tienda";
+    string opcion3="-bh";
+    string opcion4="-v";
+    string opcion5="-h";
         
         //-----------
         
-
+//se agrega selector de opciones
+            for(int i = 1; i < argc; i++)
+                if(argv[1]==opcion1){
+                    queryDeSQL="select tienda as TIENDA,sum(monto) as Venta from ventas group by tienda;";
+                    MostrarDatos(queryDeSQL);
+                }else{
+                    if (argv[1]==opcion2){
+                    
+                    }else{
+                        if(argv[1]== opcion3){
+                        queryDeSQL="select tienda, date_part('hour' , fecha) as hora,  avg(monto) as promedio from ventas group by tienda,hora"  
+" having( avg(monto) > (select  avg(promventa) as promedio from( select tienda, date_part('hour' , fecha) as hora, avg(monto) as promventa"  
+		" from ventas group by tienda,hora order by tienda,hora asc) as consulta))order by promedio desc;" ;
+                    MostrarDatos(queryDeSQL);
+                        }else{
+                            if(argv[1]=opcion4){}else{
+                            
+                            }
+                        }
+                    }
+                }
         //conexion a la base de datos
         
         
