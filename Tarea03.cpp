@@ -26,10 +26,10 @@ int main(int argc, char** argv) {
         
 
         //conexion a la base de datos
-        conexion= PQsetdbLogin("sebastian.cl","5432",NULL,NULL,"iswdb","isw","isw");
+        conexion= PQsetdbLogin("190.100.160.46","5432",NULL,NULL,"iswdb","isw","isw");
         
 
-        string queryDeSQL="select tienda ,sum(monto) as Venta from ventas group by tienda;";
+        string queryDeSQL="SELECT tienda ,SUM(monto) AS Venta FROM ventas GROUP BY tienda;";
         // comprobamos la conexion
         if (PQstatus(conexion) != CONNECTION_BAD)
             
