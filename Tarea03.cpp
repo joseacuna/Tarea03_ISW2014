@@ -90,9 +90,18 @@ int main(int argc, char** argv) {
                             if(argv[1]==opcion4){
                                 cout<<endl;
                                 cout << "Fecha de compilacion: " << __DATE__ << " " << __TIME__ << endl;
+                                cout <<"Grupo(8)"<<endl;
+                                cout <<"**********************"<<endl;
+                                cout << "Jose Acuña"<< endl<< "Christian Trujillo"<< endl<< "Luis Sandoval"<<endl;
                             
                             }else{
-                            
+                                if(argv[1]==opcion5 || argv[1]!=opcion1 || argv[1]!=opcion2 || argv[1]!=opcion3 || argv[1]!=opcion4 || argv[1]=='\0')
+                                    cout<< " las opciones disponibles de este  programa son :"<<endl;
+                                    cout<<"-r"<<" suma de ventas por cada una de las tiendas"<<endl;
+                                cout<<"-g tienda"<<" grafico  de ventas en el año"<<endl;
+                                        cout<<"-bh"<<" las horas en que mas se vende segun el promedio"<<endl;
+                                        cout<<"-v"<<" informacion acerca del programa"<<endl;
+                                            
                             }
                         }
                     }
