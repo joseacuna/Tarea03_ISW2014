@@ -16,24 +16,16 @@ using namespace std;
 /*
  * 
  */
-int main(int argc, char** argv) {
-    
+
+void MostrarDatos(string queryDeSQL){
         PGconn *conexion;
         PGresult *res;
         int i,j;
-        
-        //-----------
-        
-
-        //conexion a la base de datos
         conexion= PQsetdbLogin("190.100.160.46","5432",NULL,NULL,"iswdb","isw","isw");
-        
-
-        string queryDeSQL="SELECT tienda ,SUM(monto) AS Venta FROM ventas GROUP BY tienda;";
-        // comprobamos la conexion
+         // comprobamos la conexion
         if (PQstatus(conexion) != CONNECTION_BAD)
             
-{
+        {
         cout << "\t\t--------------------------------------" << endl;
         cout << "\t\t|  Conexion al Servidor Establecida  |" << endl;
         cout << "\t\t--------------------------------------" << endl << endl;
@@ -57,11 +49,58 @@ int main(int argc, char** argv) {
                         cout<<endl;
 
                 }
-PQclear(res);
+        PQclear(res);
         }
+        }
+
+        PQfinish(conexion);
+
 }
 
-PQfinish(conexion);
+int main(int argc, char** argv) {
+    
+    string queryDeSQL;
+        
+        //-----------
+        
+
+        //conexion a la base de datos
+        
+        
+
+//        queryDeSQL="SELECT tienda ,SUM(monto) AS Venta FROM ventas GROUP BY tienda;";
+//        // comprobamos la conexion
+//        if (PQstatus(conexion) != CONNECTION_BAD)
+//            
+//{
+//        cout << "\t\t--------------------------------------" << endl;
+//        cout << "\t\t|  Conexion al Servidor Establecida  |" << endl;
+//        cout << "\t\t--------------------------------------" << endl << endl;
+//        
+//          res = PQexec( conexion, queryDeSQL.c_str() );
+//        //res = PQexec( conexion, "select * from prueba" );
+//          int filas = PQntuples(res);
+//        int columnas = PQnfields(res);
+//
+//        if (res != NULL && PGRES_TUPLES_OK == PQresultStatus(res))
+//        {
+//            for (i=0; i<columnas; i++) {
+//                cout << PQfname(res,i) << "\t\t|\t\t";
+//            }
+//            cout << endl;
+//                for (i = 0; i <= filas-1; i++)
+//                  
+//                {
+//                for (j = 0; j <= columnas-1; j++)
+//                        cout<<PQgetvalue(res,i,j)<<"\t\t|\t\t";
+//                        cout<<endl;
+//
+//                }
+//PQclear(res);
+//        }
+//}
+//
+//PQfinish(conexion);
 //Entrega La Fecha de Compilacion
 cout<<endl;
 cout << "Fecha de compilacion: " << __DATE__ << " " << __TIME__ << endl;
