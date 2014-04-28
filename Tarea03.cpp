@@ -76,8 +76,13 @@ int main(int argc, char** argv) {
                     MostrarDatos(queryDeSQL);
                 }
                     else{
-                    if (argv[1]==opcion2){
+                    if (argv[1]==opcion2 && argv[2]=="tienda"){
                     //<aca va funcion que grafica>
+                        cout << "**************************"<< endl;
+                        cout << "Grafica No Disponible"<<endl;
+                        cout << "**************************"<< endl;      
+                        queryDeSQL="select date_part('month',fecha) as MES, sum(monto) as Venta_Mensual from ventas group by MES order by MES ASC";
+                        MostrarDatos(queryDeSQL);
                     }else{
                         if(argv[1]== opcion3){
          queryDeSQL= "select tienda, date_part('hour' , fecha) as hora,  avg(monto) as promedio from ventas group by tienda,hora"  
@@ -90,9 +95,11 @@ int main(int argc, char** argv) {
                             if(argv[1]==opcion4){
                                 cout<<endl;
                                 cout << "Fecha de compilacion: " << __DATE__ << " " << __TIME__ << endl;
+                                cout <<"Version :"<<" 21b867026f7f9574c400d355b164412c89685880"<<endl;
                                 cout <<"Grupo(8)"<<endl;
                                 cout <<"**********************"<<endl;
                                 cout << "Jose Acuña"<< endl<< "Christian Trujillo"<< endl<< "Luis Sandoval"<<endl;
+                                system("date \t");
                             
                             }else{
                                 if(argv[1]==opcion5 || argv[1]!=opcion1 || argv[1]!=opcion2 || argv[1]!=opcion3 || argv[1]!=opcion4 || argv[1]=='\0')
